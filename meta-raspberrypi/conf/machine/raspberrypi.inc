@@ -19,7 +19,6 @@ SERIAL_CONSOLES_CHECK ??= "${SERIAL_CONSOLES}"
 
 MACHINE_FEATURES = " \
     usbgadget \
-    usbhost \
     vfat \
     ext2 \
     alsa \
