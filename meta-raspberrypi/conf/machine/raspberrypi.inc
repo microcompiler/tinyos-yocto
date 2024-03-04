@@ -25,15 +25,51 @@ MACHINE_FEATURES = " \
     alsa \
 "
 
+MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
+
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
     kernel-modules \
+    kernel-module-i2c-bcm2708 \
+    kernel-module-i2c-dev \
+    udev-rules-rpi \
 "
 
 KERNEL_DEVICETREE_OVERLAYS ?= " \
     overlays/overlay_map.dtb \
+    overlays/at86rf233.dtbo \
     overlays/disable-bt.dtbo \
     overlays/disable-wifi.dtbo \
+    overlays/dwc2.dtbo \
+    overlays/gpio-key.dtbo \
+    overlays/gpio-poweroff.dtbo \
+    overlays/gpio-shutdown.dtbo \
+    overlays/i2c-gpio.dtbo \
+    overlays/i2c-rtc.dtbo \
+    overlays/imx219.dtbo \
+    overlays/imx477.dtbo \
+    overlays/imx708.dtbo \
+    overlays/mcp2515-can0.dtbo \
+    overlays/mcp2515-can1.dtbo \
+    overlays/mcp3008.dtbo \
+    overlays/miniuart-bt.dtbo \
+    overlays/pps-gpio.dtbo \
+    overlays/rpi-ft5406.dtbo \
+    overlays/rpi-poe.dtbo \
+    overlays/vc4-kms-v3d.dtbo \
+    overlays/vc4-kms-v3d-pi4.dtbo \
+    overlays/vc4-kms-v3d-pi5.dtbo \
+    overlays/vc4-kms-dsi-7inch.dtbo \
+    overlays/w1-gpio.dtbo \
+    overlays/w1-gpio-pullup.dtbo \
 "
+
+# KERNEL_DEVICETREE_OVERLAYS ?= " \
+#     overlays/overlay_map.dtb \
+#     overlays/disable-bt.dtbo \
+#     overlays/disable-wifi.dtbo \
+#     overlays/dwc2-overlay.dtb \
+#     overlays/dwc-otg-overlay.dtb \
+# "
 
 KERNEL_DEVICETREE ?= " \
     ${KERNEL_DEVICETREE_OVERLAYS} \

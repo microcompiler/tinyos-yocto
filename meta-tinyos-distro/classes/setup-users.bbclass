@@ -16,6 +16,9 @@ USERADD_COMMAND ?= "\
 EXTRA_USERS_PARAMS = "\
   groupadd -g 680 sudo; \
   groupadd -g 780 dotnet; \
+  groupadd -g 880 i2c; \
+  groupadd -g 881 spi; \
+  groupadd -g 882 gpio; \
   useradd  ${USERADD_COMMAND}; \
   usermod -p '${USER_PASSWORD_ENCRYPTED}' ${USER_NAME}; \
   usermod --shell /sbin/nologin root; \

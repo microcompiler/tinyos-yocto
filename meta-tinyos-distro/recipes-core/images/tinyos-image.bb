@@ -4,5 +4,13 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 include tinyos-image.inc
 
+# Additional image configuration defaults
+EXTRA_IMAGE_FEATURES ?= "ssh-server-openssh"
+
 # Adds 1GB extra free space to the root filesystem
 IMAGE_ROOTFS_EXTRA_SPACE = "1048576"
+
+# Additional application configuration
+CORE_IMAGE_EXTRA_INSTALL += " \
+    packagegroup-tinyos-dotnet \
+"

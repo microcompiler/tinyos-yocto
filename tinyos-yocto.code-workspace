@@ -26,11 +26,8 @@
 			"**/tmp-glibc": true
 		},
 		"files.exclude": {
-			"**/.repo": true,
-			"**/cache": true,
-			"**/downloads": true,
-			"**/buildhistory": true,
-			"**/sstate-cache": true
+			"**/bitbake*": true,
+			"**/hashserv*": true
 		},
 		"C_Cpp.files.exclude": {
 			"**/build": true

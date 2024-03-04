@@ -5,6 +5,10 @@ set -e
 
 BUILD_DIR="build"
 IMAGE_NAME="tinyos-image"
+
+declare -a machines=("raspberrypi0-2w" "raspberrypi4" "raspberrypi5")
+declare -a recipes=("tinyos-image" "package-index")
+
 install() {
     sudo apt-get update
     sudo apt-get install -y language-pack-en
@@ -23,6 +27,26 @@ init() {
 bake() {
   _source
   bitbake $IMAGE_NAME
+}
+
+bakeall() {
+  _source
+
+  for machine in ${machines[*]}; do
+    for recipe in ${recipes[*]}; do
+      MACHINE="$machine" bitbake "$recipe" $1
+    done
+  done
+}
+
+cleanall() {
+  _source
+
+  for machine in ${machines[*]}; do
+    for recipe in ${recipes[*]}; do
+      MACHINE="$machine" bitbake "$recipe" -c clean
+    done
+  done
 }
 
 busybox() {
@@ -112,5 +136,9 @@ case $1 in
   package)
     shift
     package "$@"
+    ;;
+  bakeall)
+    shift
+    bakeall "$@"
     ;;
 esac
