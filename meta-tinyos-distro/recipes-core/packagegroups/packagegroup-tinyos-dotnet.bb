@@ -20,4 +20,4 @@ RDEPENDS:${PN} = " \
 
 RDEPENDS:packagegroup-tinyos-dotnet-runtime = "\
 	vsdbg \
-	aspnet-runtime-8.0"
+	aspnet-runtime"

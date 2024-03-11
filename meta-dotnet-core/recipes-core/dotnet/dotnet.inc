@@ -13,6 +13,8 @@ RDEPENDS:${PN} = "\
     libstdc++ \
     ca-certificates \
     openssl \
+    libunwind \
+    libcurl \
 "
 
 SRC_URI[sha512sum] = "${SRC_SHA512SUM}"

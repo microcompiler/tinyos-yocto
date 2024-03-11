@@ -35,7 +35,9 @@ RDEPENDS:packagegroup-tinyos-vscode = "\
 
 RDEPENDS:packagegroup-tinyos-dotnet-sdk = "\
 	vsdbg \
-	dotnet-sdk-8.0 \
-	dotnet-sdk-8.0-dev \
-	dotnet-sdk-8.0-dbg \
+	dotnet-console \
+	dotnet-scripts \
+	dotnet-sdk \
+	dotnet-sdk-dev \
+	dotnet-sdk-dbg \
 "
