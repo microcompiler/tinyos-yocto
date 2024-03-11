@@ -15,21 +15,21 @@ EXTRA_IMAGEDEPENDS += "firmware-rpi"
 WKS_FILE ?= "raspberrypi.wks"
 IMAGE_FSTYPES  ?= "tar.gz wic.gz wic.bmap"
 
-SERIAL_CONSOLES_CHECK ??= "${SERIAL_CONSOLES}"
-
 MACHINE_FEATURES = " \
+    touchscreen \
     usbgadget \
+    keyboard \
+    bluetooth \
+    screen \
+    wifi \  
+    sdio \
     vfat \
     ext2 \
     alsa \
 "
 
-MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
-
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
     kernel-modules \
-    kernel-module-i2c-bcm2708 \
-    kernel-module-i2c-dev \
     udev-rules-rpi \
 "
 
@@ -39,6 +39,8 @@ KERNEL_DEVICETREE_OVERLAYS ?= " \
     overlays/disable-bt.dtbo \
     overlays/disable-wifi.dtbo \
     overlays/dwc2.dtbo \
+    overlays/gpio-ir.dtbo \
+    overlays/gpio-ir-tx.dtbo \
     overlays/gpio-key.dtbo \
     overlays/gpio-poweroff.dtbo \
     overlays/gpio-shutdown.dtbo \
@@ -47,28 +49,29 @@ KERNEL_DEVICETREE_OVERLAYS ?= " \
     overlays/imx219.dtbo \
     overlays/imx477.dtbo \
     overlays/imx708.dtbo \
+    overlays/iqaudio-dac.dtbo \
+    overlays/iqaudio-dacplus.dtbo \
     overlays/mcp2515-can0.dtbo \
     overlays/mcp2515-can1.dtbo \
     overlays/mcp3008.dtbo \
     overlays/miniuart-bt.dtbo \
+    overlays/pitft22.dtbo \
+    overlays/pitft28-capacitive.dtbo \
+    overlays/pitft28-resistive.dtbo \
+    overlays/pitft35-resistive.dtbo \
     overlays/pps-gpio.dtbo \
     overlays/rpi-ft5406.dtbo \
     overlays/rpi-poe.dtbo \
+    overlays/vc4-fkms-v3d.dtbo \
+    overlays/vc4-fkms-v3d-pi4.dtbo \
     overlays/vc4-kms-v3d.dtbo \
     overlays/vc4-kms-v3d-pi4.dtbo \
     overlays/vc4-kms-v3d-pi5.dtbo \
     overlays/vc4-kms-dsi-7inch.dtbo \
     overlays/w1-gpio.dtbo \
     overlays/w1-gpio-pullup.dtbo \
+    overlays/wm8960-soundcard.dtbo \
 "
-
-# KERNEL_DEVICETREE_OVERLAYS ?= " \
-#     overlays/overlay_map.dtb \
-#     overlays/disable-bt.dtbo \
-#     overlays/disable-wifi.dtbo \
-#     overlays/dwc2-overlay.dtb \
-#     overlays/dwc-otg-overlay.dtb \
-# "
 
 KERNEL_DEVICETREE ?= " \
     ${KERNEL_DEVICETREE_OVERLAYS} \

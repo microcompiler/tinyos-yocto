@@ -24,6 +24,7 @@ RDEPENDS:${PN} = " \
 
 RDEPENDS:packagegroup-tinyos-shell = "\
 	git \
+	curl \
 	lrzsz \
 "
 

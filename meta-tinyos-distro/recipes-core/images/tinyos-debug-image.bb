@@ -6,7 +6,6 @@ include tinyos-image.inc
 
 # Additional image configuration defaults
 EXTRA_IMAGE_FEATURES ?= "\ 
-    package-management \
     ssh-server-openssh \
 "
 

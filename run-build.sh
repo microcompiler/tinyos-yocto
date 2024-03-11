@@ -4,7 +4,7 @@
 set -e
 
 BUILD_DIR="build"
-IMAGE_NAME="tinyos-image"
+IMAGE_NAME="tinyos-debug-image"
 
 declare -a machines=("raspberrypi0-2w" "raspberrypi4" "raspberrypi5")
 declare -a recipes=("tinyos-image" "package-index")
@@ -67,7 +67,7 @@ flash() {
       ./tmp/deploy/images/raspberrypi4/$IMAGE_NAME-raspberrypi4.wic.gz \
       /dev/sdb
 
-  udisksctl power-off -b /dev/sdc
+  udisksctl power-off -b /dev/sdb
 }
 
 update() {

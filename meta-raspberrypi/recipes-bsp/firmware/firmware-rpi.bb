@@ -15,9 +15,11 @@ SRC_URI  = "https://github.com/raspberrypi/firmware/archive/refs/heads/${FIRMWAR
 SRC_URI += "file://cmdline.txt"
 SRC_URI += "file://config.txt"
 
-SRC_URI[sha256sum] = "bf45337faa5d00302a7118eee100c30ea53c0e25fa0fd70b3cee0bc6e28d7ca6"
+SRC_URI[sha256sum] = "c70d834eef17b0b624717d353c15acfe0d3a749a69a75dcb3fe37f0bd9031346"
 
 S = "${WORKDIR}/firmware-${FIRMWARE_BRANCH}/boot"
+
+# WARN_QA:remove = "src-uri-bad buildpaths"
 
 do_deploy() {
     install -d ${DEPLOYDIR}/boot

@@ -11,17 +11,19 @@ iface wlan0 inet dhcp
 	wpa-driver wext
 	wpa-conf /etc/wpa_supplicant.conf
 
-iface atml0 inet dhcp
-
-# Wired or wireless interfaces
-iface eth0 inet dhcp
-iface eth1 inet dhcp
-
-# Ethernet/RNDIS gadget
-auto usb0
-iface usb0 inet static
-    address 192.168.7.1
-    netmask 255.255.255.0
-
 # Bluetooth networking
 iface bnep0 inet dhcp
+
+# Wired interfaces
+auto eth0
+iface eth0 inet dhcp
+	hostname $(hostname)
+iface eth1 inet dhcp
+	hostname $(hostname)
+	
+# Ethernet/RNDIS gadget
+iface usb0 inet static
+	address 192.168.7.1
+	netmask 255.255.255.0
+	post-up start-stop-daemon -S -b -m -p /var/run/udhcpd.usb0.pid -a /usr/sbin/udhcpd  -- /etc/udhcpd.conf
+	post-down start-stop-daemon -K -q -p /var/run/udhcpd.usb0.pid

@@ -26,6 +26,7 @@ SRC_URI += "git://github.com/raspberrypi/linux.git;name=machine;branch=${LINUX_B
 SRC_URI += "file://vc4graphics-enable.cfg"
 SRC_URI += "file://powersave-enable.cfg"
 SRC_URI += "file://usbether-enable.cfg"
+# SRC_URI += "file://legacy-ptys-enable.cfg"
 
 SRC_URI:append:raspberrypi4 = " \
     file://rpi4-nvmem-enable.cfg \
